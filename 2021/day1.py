@@ -13,6 +13,6 @@ print("PART ONE:", total)
 total = 0
 window = data[:3]
 for i in range(1, len(data)):
-  if sum(window) < sum( window := data[i:i+3]):
+  if sum(window) < sum(window := data[i:i+3]):
     total += 1
 print("PART TWO:", total)
