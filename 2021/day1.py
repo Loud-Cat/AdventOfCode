@@ -1,6 +1,6 @@
 # Read input data
 with open("Inputs/input1.txt") as f:
-  data = [int(i.strip()) for i in f]
+  data = [int(i) for i in f]
 
 # PART ONE
 print("PART ONE")
