@@ -1,11 +1,11 @@
-import re
+from re import search
 with open("Inputs/input2.txt") as f:
   data = [i.strip() for i in f]
 
 # PART ONE && PART TWO
 x,y, x2,y2,aim = 0,0, 0,0,0
 for i in data:
-  direction, amount = re.search(r"(forward|up|down) (\d+)", i).groups()
+  direction, amount = search(r"(forward|up|down) (\d+)", i).groups()
   amount = int(amount)
 
   if direction == "forward":
