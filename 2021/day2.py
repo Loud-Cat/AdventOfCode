@@ -5,8 +5,7 @@ with open("Inputs/input2.txt") as f:
 # PART ONE && PART TWO
 x,y, x2,y2,aim = 0,0, 0,0,0
 for i in data:
-  stuff = re.search(r"(forward|up|down) (\d+)", i).groups()
-  direction, amount = stuff
+  direction, amount = re.search(r"(forward|up|down) (\d+)", i).groups()
   amount = int(amount)
 
   if direction == "forward":
