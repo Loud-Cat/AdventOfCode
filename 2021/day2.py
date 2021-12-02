@@ -2,7 +2,7 @@ import re
 with open("Inputs/input2.txt") as f:
   data = [i.strip() for i in f]
 
-# PART ONE
+# PART ONE && PART TWO
 x,y, x2,y2,aim = 0,0, 0,0,0
 for i in data:
   stuff = re.search(r"(forward|up|down) (\d+)", i).groups()
