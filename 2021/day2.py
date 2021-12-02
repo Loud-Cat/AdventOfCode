@@ -3,7 +3,7 @@ with open("Inputs/input2.txt") as f:
   data = [i.strip() for i in f]
 
 # PART ONE
-x,y = 0,0
+x,y, x2,y2,aim = 0,0, 0,0,0
 for i in data:
   stuff = re.search(r"(forward|up|down) (\d+)", i).groups()
   direction, amount = stuff
@@ -11,23 +11,13 @@ for i in data:
 
   if direction == "forward":
     x += amount
-  else:
-    a = amount
-    y += {"up":-a, "down":a}.get(direction)
-print("Part one:", x * y)
-
-# PART TWO
-x, y, aim = 0, 0, 0
-for i in data:
-  stuff = re.search(r"(forward|up|down) (\d+)", i).groups()
-  direction, amount = stuff
-  amount = int(amount)
-  
-  if direction == "down":
-    aim += amount
+    x2 += amount
+    y2 += (aim * amount)
   elif direction == "up":
+    y -= amount
     aim -= amount
-  else:
-    x += amount
-    y += (aim * amount)
-print("Part two:", x * y)
+  if direction == "down":
+    y += amount
+    aim += amount
+print("Part one:", x * y)
+print("Part two:", x2 * y2)
