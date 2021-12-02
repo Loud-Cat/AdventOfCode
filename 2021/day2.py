@@ -15,7 +15,7 @@ for i in data:
   elif direction == "up":
     y -= amount
     aim -= amount
-  if direction == "down":
+  elif direction == "down":
     y += amount
     aim += amount
 print("Part one:", x * y)
