@@ -3,6 +3,12 @@ with open("Inputs/input3.txt") as f:
 
 # PARTS ONE && TWO
 def get_stuff(d, mostly, part):
+  """Read the input and return the appropriate result
+  d: data - input list of binary strings
+  mostly: True/False - sorted by most-common
+  part: 1/2 - determines which part of the puzzle to solve for
+  """
+
   data = d.copy()
   binary = ""
   for i in range(12):
