@@ -8,7 +8,13 @@ def get_common(mostly):
     bits = [*zip(*data)][i]
     common = [(i, bits.count(i)) for i in set(bits)]
     most = sorted(common, key=lambda x: x[1], reverse=mostly)
-    binary += most[0][0]
+
+    if most[0][1] == most[1][1]:
+      most = "01"[mostly]
+    else:
+      most = most[0][0]
+
+    binary += most
   return int(binary, 2)
 
 gamma = get_common(True)
