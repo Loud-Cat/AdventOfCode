@@ -2,7 +2,7 @@ with open("Inputs/input3.txt") as f:
   data = [i.strip() for i in f]
 
 # PARTS ONE && TWO
-def get_stuff(d, mostly, part):
+def get_stuff(d:list, mostly:bool, part:int) -> int:
   """Read the input and return the appropriate result
   d: data - input list of binary strings
   mostly: True/False - sorted by most-common
