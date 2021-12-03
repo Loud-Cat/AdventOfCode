@@ -1,7 +1,7 @@
 with open("Inputs/input3.txt") as f:
   data = [i.strip() for i in f]
 
-# PART TWO
+# PARTS ONE && TWO
 def get_stuff(d, mostly, part):
   data = d.copy()
   binary = ""
