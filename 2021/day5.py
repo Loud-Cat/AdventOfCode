@@ -9,6 +9,7 @@ def updown(a, b):
     return range(a, b-1, -1)
   return range(a, b+1)
 
+points = {}
 def get_stuff(one=False, two=False):
   for p1, p2 in data:
     x1,y1 = map(int, p1.split(","))
@@ -38,6 +39,5 @@ def get_stuff(one=False, two=False):
         else: points[(x, y1)] = 1
   return sum(1 for i in points if points[i] > 1)
 
-points ={}
 print("Part one:", get_stuff(one=True))
 print("Part two:", get_stuff(two=True))
