@@ -1,6 +1,6 @@
 with open("Inputs/input6.txt", "r") as f:
   data = [i.strip() for i in f]
-  times = [int(i) for i in data[0].strip().split(",")]
+  timers = [int(i) for i in data[0].strip().split(",")]
 
 def get_population(initial_pop, days):
   def day():
@@ -16,5 +16,5 @@ def get_population(initial_pop, days):
     day()
   return sum(arr)
 
-print("Part one:", get_population(times, 80))
-print("Part two:", get_population(times, 256))
+print("Part one:", get_population(timers, 80))
+print("Part two:", get_population(timers, 256))
