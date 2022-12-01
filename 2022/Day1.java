@@ -9,7 +9,7 @@ import java.util.Comparator;
 /* Day 1 - Calorie Counting */
 
 public class MyClass {
-    public static int solutionOne(File file) throws IOException {
+    public static int partOne(File file) throws IOException {
         /* The first part of the Calorie Counting problem.
          * Returns the largest total calorie count of the elves. */
         
@@ -32,7 +32,7 @@ public class MyClass {
         return max;
     }
     
-    public static int solutionTwo(File file) throws IOException {
+    public static int partOne(File file) throws IOException {
         /* The second part of the Calorie Counting problem.
          * Returns the sum of the 3 largest total calories.*/
         
@@ -71,7 +71,7 @@ public class MyClass {
             System.exit(1);
         }
         
-        System.out.printf("Part 1: %d" + "%n", solutionOne(file));
-        System.out.printf("Part 2: %d" + "%n", solutionTwo(file));
+        System.out.println("Part 1: " + partOne(file));
+        System.out.println("Part 2: " + partTwo(file));
     }
 }
