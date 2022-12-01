@@ -54,7 +54,7 @@ public class MyClass {
         
         totals.sort( Comparator.reverseOrder() );
         
-        return (int) totals.stream()
+        return totals.stream()
             .limit(3L)
             .mapToInt(Integer::intValue)
             .sum();
