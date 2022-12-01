@@ -10,7 +10,7 @@ import java.util.Comparator;
 
 public class MyClass {
     public static int partOne(File file) throws IOException {
-        /* The first part of the Calorie Counting problem.
+        /* The first part of the Calorie Counting puzzle.
          * Returns the largest total calorie count of the elves. */
         
         Scanner input = new Scanner(file);
@@ -33,7 +33,7 @@ public class MyClass {
     }
     
     public static int partOne(File file) throws IOException {
-        /* The second part of the Calorie Counting problem.
+        /* The second part of the Calorie Counting puzzle.
          * Returns the sum of the 3 largest total calories.*/
         
         Scanner input = new Scanner(file);
