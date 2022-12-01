@@ -53,11 +53,7 @@ public class Day1 {
         }
         
         totals.sort( Comparator.reverseOrder() );
-        
-        return totals.stream()
-            .limit(3L)
-            .mapToInt(Integer::intValue)
-            .sum();
+        return totals.get(0) + totals.get(1) + totals.get(2);
     }
     
     public static void main(String args[]) throws IOException {
