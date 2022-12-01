@@ -1,14 +1,14 @@
 import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
+import java.io.IOException;
 
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Comparator;
 
 /* Day 1 - Calorie Counting */
 
-public class Day1 {
+public class MyClass {
     public static int solutionOne(File file) throws IOException {
         /* The first part of the Calorie Counting problem.
          * Returns the largest total calorie count of the elves. */
@@ -38,7 +38,7 @@ public class Day1 {
         
         Scanner input = new Scanner(file);
         
-        Set<Integer> totals = new TreeSet<>( Comparator.reverseOrder() );
+        List<Integer> totals = new ArrayList<>();
         int current = 0;
         
         while (input.hasNext()) {
@@ -51,6 +51,8 @@ public class Day1 {
                 current = 0;
             }
         }
+        
+        totals.sort( Comparator.reverseOrder() );
         
         return (int) totals.stream()
             .limit(3L)
