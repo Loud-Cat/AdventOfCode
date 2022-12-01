@@ -32,7 +32,7 @@ public class Day1 {
         return max;
     }
     
-    public static int partOne(File file) throws IOException {
+    public static int partTwo(File file) throws IOException {
         /* The second part of the Calorie Counting puzzle.
          * Returns the sum of the 3 largest total calories.*/
         
