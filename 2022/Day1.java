@@ -19,7 +19,7 @@ public class Day1 {
          * 
          * Returns:
            1. the total calories of the largest total per elf
-           2. the sum of first 3 largest calorie totals
+           2. the sum of the first 3 largest calorie totals
         */
         
         BufferedReader reader = new BufferedReader( new FileReader(file) );
