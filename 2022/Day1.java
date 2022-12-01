@@ -11,13 +11,14 @@ import java.util.Comparator;
  * Day 1 - Calorie Counting */
 
 public class Day1 {
-    public static int[] bothParts(File file) throws IOException {
+    private static List<Integer> solution = null;
+    
+    public static List<Integer> getCalories(File file) throws IOException {
         /* The solution to both parts of the puzzle can be found
          * in the same pass of the file more efficiently.
          * 
-         * Returns:
-           1. the total calories of the largest total per elf
-           2. the sum of the first 3 largest calorie totals
+         * Returns a reverse-sorted list of total calories per elf.
+         * Used in the solution
         */
         
         BufferedReader reader = new BufferedReader( new FileReader(file) );
@@ -25,41 +26,50 @@ public class Day1 {
         final List<Integer> totals = new ArrayList<>();
         totals.add(0);
         
-        reader.lines()
-            .forEach((String line) -> {
-                int i = totals.size() - 1;
-                
-                if ( !line.isEmpty() )
-                    totals.set(i, totals.get(i) + Integer.parseInt(line));
-                else {
-                    totals.add(0);
-                }
-            });
+        int current = 0;
+        while (true) {
+            String line = reader.readLine();
+            if (line == null) break;
+            
+            if ( line.isEmpty() ) {
+                totals.add(current);
+                current = 0;
+            } else
+                current += Integer.parseInt(line);
+        }
         
         totals.sort( Comparator.reverseOrder() );
-        
-        int left = totals.get(0);
-        int right = left + totals.get(1) + totals.get(2);
-        return new int[] {left, right};
+        return totals;
+    }
+    
+    public static int partOne(File file) throws IOException {
+        if (solution == null) solution = getCalories(file);
+        return solution.get(0);
+    }
+    
+    public static int partTwo(File file) throws IOException {
+        if (solution == null) solution = getCalories(file);
+        return solution.get(0) + solution.get(1) + solution.get(2);
     }
     
     public static void main(String args[]) throws IOException {
         /* Reads the Advent of Code puzzle input text file
          * and prints the solution to the day's problem. */
         
-        File file = new File("Inputs" + File.separator + "input1.txt");
+        File file = new File("Inputs" + File.separator + "input.txt");
         
         if ( !file.exists() ) {
             System.err.println("ERROR: cannot find file!");
-            return;
+            System.exit(1);
         }
         
-        long start = System.currentTimeMillis();
-        int[] solutions = bothParts(file);
-        long time = System.currentTimeMillis() - start;
+        long start = System.nanoTime();
+        int one = partOne(file);
+        int two = partTwo(file);
+        long time = System.nanoTime() - start;
         
-        System.out.println("Solved in " + time + " millis");
-        System.out.println("Part 1: " + solutions[0]);
-        System.out.println("Part 2: " + solutions[1]);
+        System.out.println("Part one: " + one);
+        System.out.println("Part two: " + + two);
+        System.out.printf("Solved in %,d microseconds%n", time / 1_000);
     }
 }
