@@ -8,7 +8,7 @@ import java.util.Comparator;
 
 /* Day 1 - Calorie Counting */
 
-public class MyClass {
+public class Day1 {
     public static int partOne(File file) throws IOException {
         /* The first part of the Calorie Counting puzzle.
          * Returns the largest total calorie count of the elves. */
