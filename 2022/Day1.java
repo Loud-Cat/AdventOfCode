@@ -63,7 +63,7 @@ public class Day1 {
         File file = new File("input.txt");
         
         if ( !file.exists() ) {
-            System.out.println("ERROR: cannot find file!");
+            System.err.println("ERROR: cannot find file!");
             System.exit(1);
         }
         
