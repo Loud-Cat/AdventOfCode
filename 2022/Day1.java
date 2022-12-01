@@ -1,73 +1,67 @@
+package com.mycompany.adventofcode;
+
 import java.io.File;
-import java.util.Scanner;
+import java.io.FileReader;
+import java.io.BufferedReader;
 import java.io.IOException;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-/* Day 1 - Calorie Counting */
+/* Advent of Code
+ * Day 1 - Calorie Counting */
 
 public class Day1 {
-    public static int partOne(File file) throws IOException {
-        /* The first part of the Calorie Counting puzzle.
-         * Returns the largest total calorie count of the elves. */
+    public static int[] bothParts(File file) throws IOException {
+        /* The solution to both parts of the puzzle can be found
+         * in the same pass of the file more efficiently.
+         * 
+         * Returns:
+           1. the total calories of the largest total per elf
+           2. the sum of first 3 largest calorie totals
+        */
         
-        Scanner input = new Scanner(file);
+        BufferedReader reader = new BufferedReader( new FileReader(file) );
         
-        int max = Integer.MIN_VALUE;
-        int current = 0;
+        final List<Integer> totals = new ArrayList<>();
+        totals.add(0);
         
-        while (input.hasNext()) {
-            String line = input.nextLine();
-            
-            if ( !line.isEmpty() )
-                current += Integer.parseInt(line);
-            else {
-                max = Math.max(max, current);
-                current = 0;
-            }
-        }
-        
-        return max;
-    }
-    
-    public static int partTwo(File file) throws IOException {
-        /* The second part of the Calorie Counting puzzle.
-         * Returns the sum of the 3 largest total calories.*/
-        
-        Scanner input = new Scanner(file);
-        
-        List<Integer> totals = new ArrayList<>();
-        int current = 0;
-        
-        while (input.hasNext()) {
-            String line = input.nextLine();
-            
-            if ( !line.isEmpty() )
-                current += Integer.parseInt(line);
-            else {
-                totals.add(current);
-                current = 0;
-            }
-        }
+        reader.lines()
+            .forEach((String line) -> {
+                int i = totals.size() - 1;
+                
+                if ( !line.isEmpty() )
+                    totals.set(i, totals.get(i) + Integer.parseInt(line));
+                else {
+                    totals.add(0);
+                }
+            });
         
         totals.sort( Comparator.reverseOrder() );
-        return totals.get(0) + totals.get(1) + totals.get(2);
+        
+        int left = totals.get(0);
+        int right = left + totals.get(1) + totals.get(2);
+        return new int[] {left, right};
     }
     
     public static void main(String args[]) throws IOException {
         /* Reads the Advent of Code puzzle input text file
          * and prints the solution to the day's problem. */
         
-        File file = new File("input.txt");
+        File file = new File("Inputs" + File.separator + "input.txt");
         
         if ( !file.exists() ) {
             System.err.println("ERROR: cannot find file!");
-            System.exit(1);
+            return;
         }
         
-        System.out.println("Part 1: " + partOne(file));
-        System.out.println("Part 2: " + partTwo(file));
+        long start = System.currentTimeMillis();
+        int[] solutions = bothParts(file);
+        long time = System.currentTimeMillis() - start;
+        
+        System.out.println("Solved in " + time + " millis");
+        System.out.println("Part 1: " + solutions[0]);
+        System.out.println("Part 2: " + solutions[1]);
     }
 }
