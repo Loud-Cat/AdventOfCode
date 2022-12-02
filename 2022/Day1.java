@@ -69,7 +69,7 @@ public class Day1 {
         long time = System.nanoTime() - start;
         
         System.out.println("Part one: " + one);
-        System.out.println("Part two: " + + two);
+        System.out.println("Part two: " + two);
         System.out.printf("Solved in %,d microseconds%n", time / 1_000);
     }
 }
