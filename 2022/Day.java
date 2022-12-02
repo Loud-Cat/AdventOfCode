@@ -2,7 +2,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-/* Advent of Code - Day xx
+/* Advent of Code
+ * Day xx
  * This is an empty boilerplate class for easy re-use.
  * Implementation may vary. */
 
