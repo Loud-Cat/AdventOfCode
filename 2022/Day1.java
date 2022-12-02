@@ -23,7 +23,7 @@ public class Day1 {
         
         BufferedReader reader = new BufferedReader( new FileReader(file) );
         
-        final List<Integer> totals = new ArrayList<>();
+        List<Integer> totals = new ArrayList<>();
         totals.add(0);
         
         int current = 0;
