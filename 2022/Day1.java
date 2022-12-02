@@ -56,7 +56,7 @@ public class Day1 {
         /* Reads the Advent of Code puzzle input text file
          * and prints the solution to the day's problem. */
         
-        File file = new File("Inputs" + File.separator + "input.txt");
+        File file = new File("Inputs" + File.separator + "input1.txt");
         
         if ( !file.exists() ) {
             System.err.println("ERROR: cannot find file!");
