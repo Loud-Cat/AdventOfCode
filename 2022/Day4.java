@@ -20,7 +20,7 @@ public class MyClass {
             String line = reader.readLine();
             if (line == null) break;
             
-            String[] nums = line.split(",|-");
+            String[] nums = line.split("\\D");
             int a = Integer.parseInt(nums[0]);
             int b = Integer.parseInt(nums[1]);
             int c = Integer.parseInt(nums[2]);
