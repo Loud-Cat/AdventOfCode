@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 /* Advent of Code
  * Day 4 - Camp Cleanup */
 
-public class MyClass {
+public class Day4 {
     public static int[] bothParts() throws IOException {
         /* Both parts of the puzzle. */
         
