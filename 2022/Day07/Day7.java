@@ -7,8 +7,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 /* Advent of Code
- * Day 7 - No Space Left On Device
- * NOTE: classes FileObject and FolderObject are defined below. */
+ * Day 7 - No Space Left On Device */
 
 public class Day7 {
     public static FolderObject getDirectory() throws IOException {
