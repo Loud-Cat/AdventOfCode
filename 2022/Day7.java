@@ -10,7 +10,7 @@ import java.util.ArrayDeque;
  * Day 7 - No Space Left On Device
  * NOTE: classes FileObject and FolderObject are defined below. */
 
-public class MyClass {
+public class Day7 {
     public static FolderObject getDirectory() throws IOException {
         String file = "Inputs" + File.separator + "input7.txt";
         BufferedReader reader = new BufferedReader( new FileReader(file) );
@@ -83,7 +83,7 @@ public class MyClass {
  * Contains a name (string) and size (int)
  */
 
-class FileObject implements Cloneable {
+class FileObject {
     private FolderObject parent;
     private String name;
     private int size;
@@ -99,11 +99,6 @@ class FileObject implements Cloneable {
     public int getSize() { return size; }
     
     @Override
-    public FileObject clone() {
-        return new FileObject(parent.clone(), name, size);
-    }
-    
-    @Override
     public String toString() { return String.format("File[name=%s, size=%d]", name, size); }
 }
 
@@ -112,7 +107,7 @@ class FileObject implements Cloneable {
 /* Folder Object
  * Used to represent either a file or another folder (dir) */
 
-public class FolderObject implements Cloneable {
+class FolderObject {
     private FolderObject parent;
     private String name;
     
@@ -180,13 +175,6 @@ public class FolderObject implements Cloneable {
     
     @Override
     public int hashCode() { return 0; }
-    
-    @Override
-    public FolderObject clone() {
-        if (parent == null)
-            return new FolderObject(null, name);
-        return new FolderObject(parent.clone(), name);
-    }
     
     @Override
     public String toString() {
