@@ -15,8 +15,7 @@ public class Day3 {
          * Returns the sum of the priority values of each
          * non-unique item type per rucksack. */
         
-        String file = "Inputs" + File.separator + "input3.txt";
-        BufferedReader reader = new BufferedReader( new FileReader(file) );
+        BufferedReader reader = new BufferedReader( new FileReader("input.txt") );
         
         int out = 0;
         while (true) {
@@ -47,8 +46,7 @@ public class Day3 {
          * Returns the sum of every 3 sack's item type
          * by its priority value. */
         
-        String file = "Inputs" + File.separator + "input3.txt";
-        BufferedReader reader = new BufferedReader( new FileReader(file) );
+        BufferedReader reader = new BufferedReader( new FileReader("input.txt") );
         
         int out = 0;
         while (true) {
