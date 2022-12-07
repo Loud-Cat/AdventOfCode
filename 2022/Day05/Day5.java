@@ -7,8 +7,7 @@ import java.util.regex.MatchResult;
 
 public class Day5 {
     public static String[] solve(int size) throws IOException {
-        String file = "Inputs" + File.separator + "input5.txt";
-        BufferedReader reader = new BufferedReader( new FileReader(file) );
+        BufferedReader reader = new BufferedReader( new FileReader("input.txt") );
         
         ArrayList<ArrayDeque<String>> stacks = new ArrayList<>();
         ArrayList<ArrayList<String>> newstacks = new ArrayList<>();
