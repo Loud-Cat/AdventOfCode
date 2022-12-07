@@ -10,8 +10,7 @@ public class Day4 {
     public static int[] bothParts() throws IOException {
         /* Both parts of the puzzle. */
         
-        String file = "Inputs" + File.separator + "input4.txt";
-        BufferedReader reader = new BufferedReader( new FileReader(file) );
+        BufferedReader reader = new BufferedReader( new FileReader("input.txt") );
         
         int one = 0;
         int two = 0;
