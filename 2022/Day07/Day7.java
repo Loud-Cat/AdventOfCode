@@ -51,9 +51,7 @@ public class Day7 {
         return directory;
     }
     
-    public static int partOne() throws IOException {
-        FolderObject directory = getDirectory();
-        
+    public static int partOne(FolderObject directory) throws IOException {
         int out = 0;
         for (FolderObject folder : directory.allFolders()) {
             int size = folder.getSize();
@@ -63,8 +61,7 @@ public class Day7 {
         return out;
     }
     
-    public static int partTwo() throws IOException {
-        FolderObject directory = getDirectory();
+    public static int partTwo(FolderObject directory) throws IOException {
         List<FolderObject> all = directory.allFolders();
         all.sort( Comparator.comparing(FolderObject::getSize) );
         
