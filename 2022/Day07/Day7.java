@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.io.File;
 
 import java.util.List;
-import java.util.ArrayList;
 
 /* Advent of Code
  * Day 7 - No Space Left On Device */
@@ -66,7 +65,7 @@ public class Day7 {
     
     public static int partTwo() throws IOException {
         FolderObject directory = getDirectory();
-        List<FolderObject> all = new ArrayList<>( directory.allFolders() );
+        List<FolderObject> all = directory.allFolders();
         all.sort( Comparator.comparing(FolderObject::getSize) );
         
         int remaining = 70_000_000 - directory.getSize();
