@@ -6,6 +6,9 @@ import java.io.File;
 import java.util.Deque;
 import java.util.ArrayDeque;
 
+import java.util.List;
+import java.util.ArrayList;
+
 /* Advent of Code
  * Day 7 - No Space Left On Device
  * NOTE: classes FileObject and FolderObject are defined below. */
@@ -81,8 +84,9 @@ public class Day7 {
     
     public static void main(String[] args) throws IOException {
         long start = System.currentTimeMillis();
-        int one = partOne();
-        int two = partTwo();
+        FolderObject directory = getDirectory();
+        int one = partOne(directory);
+        int two = partTwo(directory);
         long time = System.currentTimeMillis() - start;
         
         System.out.println("Part 1: " + one);
@@ -165,8 +169,8 @@ class FolderObject {
         return out;
     }
     
-    public Deque<FolderObject> allFolders() {
-        Deque<FolderObject> out = new ArrayDeque<>();
+    public List<FolderObject> allFolders() {
+        List<FolderObject> out = new ArrayList<>();
         out.addAll(folders);
         
         for (FolderObject folder : folders)
