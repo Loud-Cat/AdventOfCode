@@ -5,7 +5,7 @@ import java.io.IOException;
 
 /* Advent of Code
  * Day 2 - Rock Paper Scissors */
- 
+
 public class Day2 {
 	public static int score(char a, char b) {
 		 /* Knowing  [a,b,c] => [rock, paper, scissors]
@@ -60,7 +60,7 @@ public class Day2 {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		File file = new File("Inputs" + File.separator + "input2.txt");
+		File file = new File("input.txt");
 		
 		if (!file.exists()) {
 			System.err.println("ERROR: canot find file!");
