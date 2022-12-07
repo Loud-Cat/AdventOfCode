@@ -66,12 +66,27 @@ public class Day7 {
         return out;
     }
     
+    public static int partTwo() throws IOException {
+        FolderObject directory = getDirectory();
+        List<FolderObject> all = new ArrayList<>( directory.allFolders() );
+        all.sort( Comparator.comparing(FolderObject::getSize) );
+        
+        int remaining = 70_000_000 - directory.getSize();
+        for (FolderObject folder : all)
+            if (remaining + folder.getSize() >= 30_000_000)
+                return folder.getSize();
+        
+        return -1;
+    }
+    
     public static void main(String[] args) throws IOException {
         long start = System.currentTimeMillis();
         int one = partOne();
+        int two = partTwo();
         long time = System.currentTimeMillis() - start;
         
         System.out.println("Part 1: " + one);
+        System.out.println("Part 2: " + two);
         System.out.printf("Completed in %d ms%n", time);
     }
 }
