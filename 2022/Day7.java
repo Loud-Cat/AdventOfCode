@@ -118,7 +118,9 @@ class FileObject {
     public int getSize() { return size; }
     
     @Override
-    public String toString() { return String.format("File[name=%s, size=%d]", name, size); }
+    public String toString() {
+        return String.format("File[name=%s, size=%d]", name, size);
+    }
 }
 
 // ----------
