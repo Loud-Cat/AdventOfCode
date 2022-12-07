@@ -1,6 +1,12 @@
 /* Folder Object
  * Used to represent either a file or another folder (dir) */
 
+import java.util.Deque;
+import java.util.ArrayDeque;
+
+import java.util.List;
+import java.util.ArrayList;
+
 public class FolderObject {
     private FolderObject parent;
     private String name;
