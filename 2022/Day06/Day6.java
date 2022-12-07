@@ -12,8 +12,7 @@ import java.io.File;
 
 public class Day6 {
     private static int getStart(int size) throws IOException {
-        String file = "Inputs" + File.separator + "input6.txt";
-        BufferedReader reader = new BufferedReader( new FileReader(file) );
+        BufferedReader reader = new BufferedReader( new FileReader("input.txt") );
         String stream = reader.readLine();
         
         for (int i = size; i < stream.length(); i++) {
