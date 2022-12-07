@@ -3,9 +3,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
 
-import java.util.Deque;
-import java.util.ArrayDeque;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -15,8 +12,7 @@ import java.util.ArrayList;
 
 public class Day7 {
     public static FolderObject getDirectory() throws IOException {
-        String file = "Inputs" + File.separator + "input7.txt";
-        BufferedReader reader = new BufferedReader( new FileReader(file) );
+        BufferedReader reader = new BufferedReader( new FileReader("input.txt") );
         
         FolderObject directory = new FolderObject(null, "/");
         FolderObject currentDir = directory;
