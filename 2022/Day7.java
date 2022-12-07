@@ -3,8 +3,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
 
+import java.util.Deque;
+import java.util.ArrayDeque;
+
 /* Advent of Code
- * Day 7 - No Space Left On Device */
+ * Day 7 - No Space Left On Device
+ * NOTE: classes FileObject and FolderObject are defined below. */
 
 public class MyClass {
     public static FolderObject getDirectory() throws IOException {
@@ -69,5 +73,123 @@ public class MyClass {
         
         System.out.println("Part 1: " + one);
         System.out.printf("Completed in %d ms%n", time);
+    }
+}
+
+// --------------------
+
+/* File Object
+ * Used to represent a file
+ * Contains a name (string) and size (int)
+ */
+
+class FileObject implements Cloneable {
+    private FolderObject parent;
+    private String name;
+    private int size;
+    
+    public FileObject(FolderObject parent, String name, int size) {
+        this.parent = parent;
+        this.name = name;
+        this.size = size;
+    }
+    
+    public FolderObject getParent() { return parent; }
+    public String getName() { return name; }
+    public int getSize() { return size; }
+    
+    @Override
+    public FileObject clone() {
+        return new FileObject(parent.clone(), name, size);
+    }
+    
+    @Override
+    public String toString() { return String.format("File[name=%s, size=%d]", name, size); }
+}
+
+// ----------
+
+/* Folder Object
+ * Used to represent either a file or another folder (dir) */
+
+public class FolderObject implements Cloneable {
+    private FolderObject parent;
+    private String name;
+    
+    private Deque<FolderObject> folders;
+    private Deque<FileObject> files;
+    
+    public FolderObject(FolderObject parent, String name) {
+        this.parent = parent;
+        this.name = name;
+        
+        this.folders = new ArrayDeque<>();
+        this.files = new ArrayDeque<>();
+    }
+    
+    public FolderObject get(String dir) {
+        for (FolderObject child : folders)
+            if (child.getName().equals(dir) )
+                return child;
+        
+        return null;
+    }
+    
+    public boolean contains(String dir) {
+        for (FolderObject children : folders)
+            if ( children.getName().equals(dir) )
+                return true;
+        
+        return false;
+    }
+    
+    public int getSize() {
+        int out = 0;
+        
+        for (FolderObject folder : folders)
+            out += folder.getSize();
+        
+        for (FileObject file : files)
+            out += file.getSize();
+        
+        return out;
+    }
+    
+    public Deque<FolderObject> allFolders() {
+        Deque<FolderObject> out = new ArrayDeque<>();
+        out.addAll(folders);
+        
+        for (FolderObject folder : folders)
+            out.addAll( folder.allFolders() );
+        
+        return out;
+    }
+    
+    public FolderObject getParent() { return parent; }
+    public String getName() { return name; }
+    
+    public Deque<FolderObject> getFolders() { return folders; }
+    public Deque<FileObject> getFiles() { return files;}
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof FolderObject other)
+            return other.getName().equals(name);
+        return false;
+    }
+    
+    @Override
+    public int hashCode() { return 0; }
+    
+    @Override
+    public FolderObject clone() {
+        if (parent == null)
+            return new FolderObject(null, name);
+        return new FolderObject(parent.clone(), name);
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("Folder[name=%s, folders=%s, files=%s]", name, folders, files);
     }
 }
