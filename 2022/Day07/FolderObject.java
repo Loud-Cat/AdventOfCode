@@ -1,5 +1,5 @@
 /* Folder Object
- * Used to represent either a file or another folder (dir) */
+ * Can contain both files and other folders */
 
 import java.util.Deque;
 import java.util.ArrayDeque;
