@@ -61,14 +61,10 @@ public class Day9 {
                  * and aren't in the same row or column,
                  * the tail always moves one step diagonally" */
                 else if ( !isTouching(tailX, tailY, headX, headY) ) {
-                    if (tailX < headX) tailX += 1;
-                    else if (tailX > headX) tailX -= 1;
-                    
-                    if (tailY < headY) tailY += 1;
-                    else if (tailY > headY) tailY -= 1;
+                    if (dx != 0) tailX += (tailX < headX) ? 1 : -1;
+                    if (dy != 0) tailY += (tailY < headY) ? 1 : -1;
                 }
                 
-                // System.out.println( new Position(tailX, tailY) );
                 visited.add( new Position(tailX, tailY) );
             }
         }
