@@ -27,9 +27,9 @@ public class Circuit {
             if (cycle == 20 || (cycle + 20) % 40 == 0)
                 checkpoints.add(cycle * x);
             
-            int r = (cycle - 1) / 40;
+            int row = (cycle - 1) / 40;
             int crt = (cycle - 1) % 40;
-            screen[r][crt] = (Math.abs(crt - x) < 2) ? '#' : '.';
+            screen[row][crt] = (Math.abs(crt - x) < 2) ? '#' : '.';
         }
     }
     
