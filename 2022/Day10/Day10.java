@@ -11,7 +11,7 @@ public class Day10 {
         Circuit circuit = new Circuit();
         
         String line;
-        while((line = reader.readLine()) != null) {
+        while ((line = reader.readLine()) != null) {
             if ( line.equals("noop") )
                 circuit.next(1);
             else {
