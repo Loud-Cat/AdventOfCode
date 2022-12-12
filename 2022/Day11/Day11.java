@@ -59,13 +59,19 @@ public class Day11 {
         List<Monkey> monkeys = getMonkeys("./input11.txt");
         Monkey.init(monkeys);
         
+        // Accumulate the "test" number of each monkey
+        // Equivelent to n0 * n1 * n2 * ...
         int mod = monkeys.stream().map(m -> m.test).reduce(1, (a, b) -> a * b);
         
         for (int i = 0; i < 10_000; i++)
             for (Monkey monkey : monkeys)
                 monkey.inspectAll(mod);
         
+        // Sort by descending order
+        // Uses a lambda to represent a comparator
         monkeys.sort((a, b) -> Long.compare(b.total, a.total));
+        
+        // Print monkey business
         System.out.println( monkeys.get(0).total * monkeys.get(1).total );
     }
 }
