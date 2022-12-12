@@ -54,7 +54,7 @@ public class Monkey {
          */
         
         for (Item item : items) {
-            item.worry = operation.applyAsInt(item.worry) % modulo;
+            item.worry = operation.applyAsInt(item.worry % modulo);
             int index = (item.worry % test == 0) ? yes : no;
             monkeys.get(index).add(item);
             
