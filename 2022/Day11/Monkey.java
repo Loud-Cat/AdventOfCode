@@ -24,6 +24,8 @@ public class Monkey {
     }
     
     public static void init(List<Monkey> monkeyz) {
+        /* Define the shared list of monkeys */
+        
         monkeys.clear();
         monkeys.addAll(monkeyz);
     }
@@ -31,6 +33,10 @@ public class Monkey {
     public void add(Item item) { items.add(item); }
     
     public void inspectAll() {
+        /* Inspects every item the monkey is holding.
+         * Divides worry level by 3 before modifying
+         */
+        
         for (Item item : items) {
             item.worry = operation.applyAsInt(item.worry) / 3;
             int index = (item.worry % test == 0) ? yes : no;
@@ -43,6 +49,10 @@ public class Monkey {
     }
     
     public void inspectAll(int modulo) {
+        /* Inspects every item the monkey is holding.
+         * Does not divide by 3. Instead, applies given modulo
+         */
+        
         for (Item item : items) {
             item.worry = operation.applyAsInt(item.worry) % modulo;
             int index = (item.worry % test == 0) ? yes : no;
