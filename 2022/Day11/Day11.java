@@ -71,7 +71,7 @@ public class Day11 {
         // Uses a lambda to represent a comparator
         monkeys.sort((a, b) -> Long.compare(b.total, a.total));
         
-        // Print monkey business
+        // Print monkey business (currently wrong answer)
         System.out.println( monkeys.get(0).total * monkeys.get(1).total );
     }
 }
